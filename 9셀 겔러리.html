@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>9셀 겔러리</title>
+<style>
+.wrapper{
+	width:750px;
+	height:600px;
+	margin:auto;
+	background:pink;
+}
+.controller{
+	width:150px;
+	height:100%;
+	background:blue;
+	position:relative;
+	float:left;
+}
+#map{
+	width:100px;
+	height:100px;
+	position:absolute;
+	left:20px;
+	top:100px;
+	background:yellow;
+}
+.content{
+	width:600px;
+	height:100%;
+	background:#000;
+	float:left;
+}
+.mask{
+	width:200px;
+	height:200px;
+	background:yellow;
+	position:relative; /*다른 태그에 의해 영향을 받은 최최에 바로 
+	그 자리를 기준으로 한 위치 속성이 상대위치다!!*/
+	left:200px;
+	top:200px;
+	/*overflow:hidden;*/
+}
+#box{
+	width:600px;
+	height:600px;
+	background:green;
+	position:absolute;
+	left:0px;
+	top:0px;
+}
+</style>
+
+</head>
+<body>
+	<div class="wrapper">
+		<div class="controller">
+			<div id="map"></div>
+		</div>
+		<div class="content">
+			<div class="mask">
+				<div id="box"></div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
