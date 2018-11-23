@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <title>롤러코스터 좌표</title>
 <style>
+body{margin:0px;}
 .wrapper{
 	width:1100px;
 	height:500px;
@@ -32,6 +33,7 @@
 <script>
 var content;
 var data;
+var pointArray=[];//장차, 1차원 배열들이 담겨질 배열..
 
 function init(){
 	content=document.getElementById("content");
@@ -48,8 +50,21 @@ function createPoint(){
 	span.style.position="absolute";
 	span.style.left=event.clientX+"px";
 	span.style.top=event.clientY+"px";
+	span.style.fontSize="4px";
 	console.log(event.clientX,event.clientY);
+	//현재 좌표를 보관해 놓자!!! 점하나를 1차원 배열 1개에 담자
+	var pos=[event.clientX ,event.clientY];
+	pointArray.push(pos);//0번째 칸부터 채워넣는다!!
+	printPoint();
+	//메모리에 담겨진 데이터를 시각화 시킨다!! div 좌표출력
 	content.appendChild(span);
+}
+function printPoint(){
+	var str="";
+	str=str+"x축:"+pointArray[0][0];
+	str=str+", y축:"+pointArray[0][1]+"<br/>";
+
+	data.innerHTML=str;//x축
 }
 
 addEventListener("load", function(){
