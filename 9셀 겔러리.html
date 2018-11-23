@@ -38,7 +38,7 @@
 	그 자리를 기준으로 한 위치 속성이 상대위치다!!*/
 	left:200px;
 	top:200px;
-	/*overflow:hidden;*/
+	overflow:hidden;
 }
 #box{
 	width:600px;
@@ -60,6 +60,9 @@ var pos=[
 var targetX=0;
 var targetY=0;
 var a=0.1;
+var imgPath=[
+	"1.jpg","2.jpg","3.jpg","4.jpg","5.jpg","6.jpg","7.jpg","8.jpg","9.jpg"
+];
 
 function init(){
 	map=document.getElementById("map");
@@ -69,6 +72,8 @@ function init(){
 	box.style.top=0+"px";
 
 	createMap();
+	createImg();
+	setInterval("move()",30);
 }
 //겔러리를 선택할 수 있는 미니맵
 function createMap(){
@@ -87,11 +92,22 @@ function createMap(){
 			targetX=pos[this.id][0];
 			targetY=pos[this.id][1];
 			//alert(targetX+","+targetY);
-			move();
+			//move();
 		});
 		map.appendChild(div);
 	}
 }
+//박스안에 이미지 채우기 
+function createImg(){
+	for(var i=0;i<imgPath.length;i++){
+		var img=document.createElement("img");
+		img.src="../res/geo/"+imgPath[i];
+		img.style.width=200+"px";
+		img.style.height=200+"px";
+		box.appendChild(img);
+	}
+}
+
 //박스 자체를 움직이게 하는 함수
 function move(){
 	box.style.left=parseFloat(box.style.left)+a*(targetX-parseFloat(box.style.left))+"px";
