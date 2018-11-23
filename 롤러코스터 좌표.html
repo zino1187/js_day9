@@ -80,7 +80,12 @@ function createMario(){
 
 	content.appendChild(mario);
 }
-
+//메모리에 있는 이차원 배열이 마리오가 움직일 좌표들이 모여있는 
+//데이터베이스 이므로, 한층 한층 접근해서 그 정보를 가져온다..
+function move(){
+	mario.style.left=pointArray[0][0]+"px";	
+	mario.style.top=pointArray[0][1]+"px";	
+}
 addEventListener("load", function(){
 	init();
 });
@@ -91,7 +96,7 @@ addEventListener("load", function(){
 	<div class="wrapper">
 		<div id="content"></div>
 		<div class="info">
-			<button>출발</button>
+			<button onClick="move()">출발</button>
 			<button>Pause</button>
 			<div id="data"></div>
 		</div>
