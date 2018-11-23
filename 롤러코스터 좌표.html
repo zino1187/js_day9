@@ -34,6 +34,7 @@ var content;
 var data;
 var pointArray=[];//장차, 1차원 배열들이 담겨질 배열..
 var mario;
+var index=0;
 
 function init(){
 	content=document.getElementById("content");
@@ -83,8 +84,11 @@ function createMario(){
 //메모리에 있는 이차원 배열이 마리오가 움직일 좌표들이 모여있는 
 //데이터베이스 이므로, 한층 한층 접근해서 그 정보를 가져온다..
 function move(){
-	mario.style.left=pointArray[0][0]+"px";	
-	mario.style.top=pointArray[0][1]+"px";	
+	mario.style.left=pointArray[index][0]+"px";	
+	mario.style.top=pointArray[index][1]+"px";	
+	index++
+
+	setTimeout("move()",50);
 }
 addEventListener("load", function(){
 	init();
